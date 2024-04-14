@@ -2,26 +2,14 @@ class Student(
     private var firstName: String,
     private var lastName: String,
     private var id: String,
-    private var grade: Double
+    private var grade: Grades
 ) {
 
     override fun toString(): String {
-        return "imię: $firstName, nazwisko: $lastName, numer indeksu: $id, ocena: $grade"
+        return "imię: $firstName, nazwisko: $lastName, numer indeksu: $id, ocena: ${grade.description} - ${grade.grade}"
     }
 
-    fun description(): String {
-        return when (grade) {
-            2.0 -> "niedostateczny"
-            3.0 -> "dostateczny"
-            3.5 -> "dostateczny plus"
-            4.0 -> "dobry"
-            4.5 -> "dobry plus"
-            5.0 -> "bardzo dobry"
-            else -> "error"
-        }
-    }
-
-    fun getGrade(): Double {
+    fun getGrade(): Grades {
         return grade
     }
 
@@ -37,7 +25,7 @@ class Student(
         return id
     }
 
-    fun setGrade(grade: Double) {
+    fun setGrade(grade: Grades) {
         this.grade = grade
     }
 
